@@ -1,0 +1,60 @@
+---
+title: "Hello World"
+slug: "hello-world"
+summary: "A simple introduction to the personal site and my journey with GPU computing."
+publishedAt: "2025-01-15"
+updatedAt: "2025-01-15"
+tags: [intro, gpu, computing]
+series: null
+status: published
+image: null
+canonicalUrl: null
+---
+
+# Hello World
+
+Welcome to my personal site! This is where I'll be sharing **GPU-rich stories**, computational stances, and various technical explorations.
+
+## What to Expect
+
+This site serves as a digital archive for:
+
+- **Blog posts**: Technical insights and tutorials
+- **Stories**: GPU-rich narratives about computational experiences
+- **Stances**: My opinions on technology and computing trends
+- **Papers**: Research work and academic contributions
+
+## Why GPUs?
+
+Graphics Processing Units have revolutionized not just gaming, but scientific computing, machine learning, and creative applications. The parallel nature of GPU computing opens up fascinating possibilities for:
+
+```python
+import torch
+
+# Simple GPU acceleration example
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+    print(f"Using GPU: {torch.cuda.get_device_name()}")
+else:
+    device = torch.device("cpu")
+    print("Using CPU")
+
+# Create tensors on GPU
+x = torch.randn(1000, 1000).to(device)
+y = torch.randn(1000, 1000).to(device)
+
+# Parallel matrix multiplication
+result = torch.mm(x, y)
+```
+
+## The Journey Ahead
+
+This site will document my explorations in:
+
+- High-performance computing
+- GPU programming with CUDA and OpenCL
+- Machine learning infrastructure
+- Creative coding with shaders
+- Systems programming
+
+Stay tuned for more content!
