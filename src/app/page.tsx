@@ -1,5 +1,34 @@
 import { siteConfig } from '@/lib/site.config';
 
+interface ColorfulButtonProps {
+  href: string;
+  children: React.ReactNode;
+  color: 'blue' | 'purple' | 'green' | 'orange' | 'red';
+}
+
+function ColorfulButton({ href, children, color }: ColorfulButtonProps) {
+  const colorClasses = {
+    blue: 'bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-200 hover:border-blue-500 hover:scale-105 hover:shadow-md',
+    purple: 'bg-purple-100 border-purple-400 text-purple-800 hover:bg-purple-200 hover:border-purple-500 hover:scale-105 hover:shadow-md',
+    green: 'bg-green-100 border-green-400 text-green-800 hover:bg-green-200 hover:border-green-500 hover:scale-105 hover:shadow-md',
+    orange: 'bg-orange-100 border-orange-400 text-orange-800 hover:bg-orange-200 hover:border-orange-500 hover:scale-105 hover:shadow-md',
+    red: 'bg-red-100 border-red-400 text-red-800 hover:bg-red-200 hover:border-red-500 hover:scale-105 hover:shadow-md'
+  };
+
+  return (
+    <a 
+      href={href}
+      className={`
+        inline-block px-2 py-1 rounded-md border-2 text-sm font-medium
+        transition-all duration-300 ease-out transform
+        ${colorClasses[color]}
+      `}
+    >
+      {children}
+    </a>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center px-8 sm:px-12 md:px-16 lg:px-20">
@@ -17,9 +46,9 @@ export default function Home() {
             <ul className="space-y-3 text-lg text-muted-foreground hero-list">
               <li>• Hobby-maxxer: running, basketball, working out, biking, swimming, reading, investing, and creating things that convenience everyone.</li>
               <li>• Life goals: summit K2 and/or complete an Ironman.</li>
-              <li>• Some of my <a href="#" className="text-blue-500 hover:text-blue-400 transition-colors underline">projects</a></li>
-              <li>• My <a href="#" className="text-blue-500 hover:text-blue-400 transition-colors underline">substack</a></li>
-              <li>• Connect: <a href="https://twitter.com/esravil" className="text-blue-500 hover:text-blue-400 transition-colors underline">Twitter</a>, <a href="mailto:esravil@example.com" className="text-blue-500 hover:text-blue-400 transition-colors underline">Email</a></li>
+              <li>• Some of my <ColorfulButton href="#" color="purple">projects</ColorfulButton></li>
+              <li>• My <ColorfulButton href="#" color="green">substack</ColorfulButton></li>
+              <li>• Connect: <ColorfulButton href="https://twitter.com/esravil" color="blue">Twitter</ColorfulButton> <ColorfulButton href="mailto:esravil@example.com" color="orange">Email</ColorfulButton></li>
             </ul>
           </div>
         </section>
