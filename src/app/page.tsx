@@ -11,7 +11,7 @@ export default function Home() {
           </h1>
           <div className="space-y-6 text-left">
             <p className="text-lg text-muted-foreground">
-              A NYC/SF tech bro who didn't go to a T20 school but interned at Google and the Solana Foundation. Systems programmer in Rust, fascinated with distributed systems and blockchain since mid-2024. Active in both SF tech and web3 Solana ecosystems.
+              A NYC/SF tech bro who didn&apos;t go to a T20 school but interned at Google and the Solana Foundation. Systems programmer in Rust, fascinated with distributed systems and blockchain since mid-2024. Active in both SF tech and web3 Solana ecosystems.
             </p>
             
             <ul className="space-y-3 text-lg text-muted-foreground hero-list">

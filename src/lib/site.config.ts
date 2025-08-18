@@ -15,7 +15,10 @@ export const siteConfig = {
     linkedin: '',
     email: 'mailto:esravil@example.com',
   },
-  navigation: [],
+  navigation: [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+  ],
   analytics: {
     // Add analytics configuration here
     vercel: process.env.NODE_ENV === 'production',
