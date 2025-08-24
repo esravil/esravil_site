@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  }
+  },
+  compiler: {
+    removeConsole: true, // Remove console.logs in production
+  },
+  // Optimize bundle
+  poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig;
