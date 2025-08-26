@@ -18,8 +18,8 @@ export default function About() {
           </div>
           <div className="space-y-6 text-left">
             <div className="space-y-2">
-              <p className="text-lg font-mono">$ cat about.txt</p>
-              <div className="text-lg text-muted-foreground ml-4 space-y-4">
+              <p className="text-lg font-mono">% cat about.txt</p>
+              <div className="text-sm text-muted-foreground ml-4 space-y-4">
                 <p>
                   Hey I&apos;m esravil. I like to make cool things. I&apos;m fond of distributed systems and solving difficult problems. I didn&apos;t go to a t20 school, but I interned at Google and at the Solana Foundation.
                 </p>
@@ -31,32 +31,28 @@ export default function About() {
                 <p>
                   When I&apos;m not coding, you&apos;ll find me pursuing various physical activities or diving deep into books about technology, finance, and personal development. I believe in continuous learning and pushing personal boundaries.
                 </p>
+                
+                <p>
+                  I&apos;ve had the opportunity to intern at Google and the Solana Foundation, where I worked on challenging problems in distributed systems and blockchain technology. These experiences shaped my understanding of building systems at scale.
+                </p>
+                
+                <p>
+                  I&apos;m a hobby-maxxer: running, basketball, working out, biking, swimming, reading, investing, and creating things that convenience everyone.
+                </p>
+                
+                <p>
+                  My current goals include summiting K2 and/or completing an Ironman. These challenges represent the intersection of physical endurance, mental fortitude, and meticulous preparation that I find compelling.
+                </p>
               </div>
             </div>
             
-            <div className="space-y-2">
-              <p className="text-lg font-mono">$ cat interests.txt</p>
-              <p className="text-lg text-muted-foreground ml-4">
-                Hobby-maxxer: running, basketball, working out, biking, swimming, reading, investing, and creating things that convenience everyone.
-              </p>
-            </div>
-            
-            <div className="space-y-2">
-              <p className="text-lg font-mono">$ cat goals.txt</p>
-              <p className="text-lg text-muted-foreground ml-4">
-                Summit K2 and/or complete an Ironman. These challenges represent the intersection of physical endurance, mental fortitude, and meticulous preparation that I find compelling.
-              </p>
-            </div>
-            
-            <div className="space-y-2">
-              <p className="text-lg font-mono">$ cat experience.txt</p>
-              <p className="text-lg text-muted-foreground ml-4">
-                I&apos;ve had the opportunity to intern at Google and the Solana Foundation, where I worked on challenging problems in distributed systems and blockchain technology. These experiences shaped my understanding of building systems at scale.
-              </p>
-            </div>
-            
             <div className="mt-8">
-              <Link href="/" className="text-blue-600 hover:underline">← Back to home</Link>
+              <Link href="/" className="inline-flex items-center gap-2 px-3 py-2 bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground rounded text-sm transition-colors no-underline">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+                </svg>
+                Back to home
+              </Link>
             </div>
           </div>
         </section>

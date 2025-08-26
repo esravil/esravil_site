@@ -58,8 +58,8 @@ export default async function BlogPage() {
           </div>
           <div className="space-y-6 text-left">
             <div className="space-y-2">
-              <p className="text-lg font-mono">$ ls -a</p>
-              <div className="text-lg text-muted-foreground ml-4 space-y-1">
+              <p className="text-lg font-mono">% ls -a</p>
+              <div className="text-sm text-muted-foreground ml-4 space-y-1">
                 <p>Thoughts on technology, distributed systems, and building things.</p>
                 {posts.length > 0 ? (
                   posts.map((post) => (
@@ -82,7 +82,12 @@ export default async function BlogPage() {
             </div>
             
             <div className="mt-8">
-              <Link href="/" className="text-blue-600 hover:underline">← Back to home</Link>
+              <Link href="/" className="inline-flex items-center gap-2 px-3 py-2 bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground rounded text-sm transition-colors no-underline">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+                </svg>
+                Back to home
+              </Link>
             </div>
           </div>
         </section>
