@@ -3,8 +3,8 @@
   <channel>
     <title>esravil</title>
     <description>A NYC/SF tech bro who didn't go to a T20 school but interned at Google and the Solana Foundation. Systems programmer in Rust, fascinated with distributed systems and blockchain since mid-2024. Active in both SF tech and web3 Solana ecosystems. Hobby-maxxer: running, basketball, working out, biking, swimming, reading, investing, and creating things that convenience everyone. Life goals: summit K2 and/or complete an Ironman.</description>
-    <link>https://esravil.dev</link>
-    <atom:link href="https://esravil.dev/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://esravil.io</link>
+    <atom:link href="https://esravil.io/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Aug 2025 00:00:00 GMT</lastBuildDate>
     <managingEditor>esravil@example.com (esravil)</managingEditor>
@@ -13,8 +13,8 @@
     <item>
       <title>Welcome to esravil</title>
       <description>Personal site of esravil - A NYC/SF tech bro focused on systems programming and distributed systems.</description>
-      <link>https://esravil.dev</link>
-      <guid isPermaLink="true">https://esravil.dev</guid>
+      <link>https://esravil.io</link>
+      <guid isPermaLink="true">https://esravil.io</guid>
       <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
     </item>
   </channel>

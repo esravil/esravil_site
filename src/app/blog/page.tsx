@@ -42,8 +42,8 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-8 sm:px-12 md:px-16 lg:px-20">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen px-8 sm:px-12 md:px-16 lg:px-20 py-16">
+      <div className="w-full max-w-2xl mx-auto">
         <section className="space-y-8">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl text-left">
@@ -59,17 +59,17 @@ export default async function BlogPage() {
           <div className="space-y-6 text-left">
             <div className="space-y-2">
               <p className="text-lg font-mono">% ls -a</p>
-              <div className="text-sm text-muted-foreground ml-4 space-y-1">
+              <div className="text-lg text-muted-foreground ml-4 space-y-1">
                 <p>Thoughts on technology, distributed systems, and building things.</p>
                 {posts.length > 0 ? (
                   posts.map((post) => (
                     <p key={post.slug}>
-                      <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:underline">
+                      <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 px-3 py-2 bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground rounded text-sm transition-colors no-underline">
                         {post.title}
                       </Link>
-                      <span className="text-sm ml-2">({new Date(post.publishedAt).toLocaleDateString()})</span>
+                      <span className="text-lg ml-2">({new Date(post.publishedAt).toLocaleDateString()})</span>
                       {post.tags.length > 0 && (
-                        <span className="text-sm ml-2">
+                        <span className="text-lg ml-2">
                           [{post.tags.join(', ')}]
                         </span>
                       )}

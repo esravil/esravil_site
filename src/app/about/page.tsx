@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-8 sm:px-12 md:px-16 lg:px-20">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen px-8 sm:px-12 md:px-16 lg:px-20 py-16">
+      <div className="w-full max-w-2xl mx-auto">
         <section className="space-y-8">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl text-left">
@@ -19,30 +19,44 @@ export default function About() {
           <div className="space-y-6 text-left">
             <div className="space-y-2">
               <p className="text-lg font-mono">% cat about.txt</p>
-              <div className="text-sm text-muted-foreground ml-4 space-y-4">
+              <div className="text-lg text-muted-foreground ml-4 space-y-4">
                 <p>
-                  Hey I&apos;m esravil. I like to make cool things. I&apos;m fond of distributed systems and solving difficult problems. I didn&apos;t go to a t20 school, but I interned at Google and at the Solana Foundation.
+                  Hey I&apos;m esravil. I like to make cool things. I&apos;m fond of distributed systems and solving difficult problems. Previously, I interned at Google and at the Solana Foundation.
                 </p>
                 
-                <p>
-                  I&apos;m passionate about building scalable systems and solving complex technical challenges. My experience spans from working on distributed systems at major tech companies to contributing to blockchain infrastructure.
-                </p>
                 
-                <p>
-                  When I&apos;m not coding, you&apos;ll find me pursuing various physical activities or diving deep into books about technology, finance, and personal development. I believe in continuous learning and pushing personal boundaries.
-                </p>
+                <h2 className="text-base font-mono text-foreground mt-6"># interests</h2>
+                <ul className="ml-4 space-y-1">
+                  <li>• gmk keycaps</li>
+                  <li>• gym prs</li>
+                  <li>• the art of zero-sum</li>
+                  <li>• dwarkesh patel videos</li>
+                </ul>
                 
-                <p>
-                  I&apos;ve had the opportunity to intern at Google and the Solana Foundation, where I worked on challenging problems in distributed systems and blockchain technology. These experiences shaped my understanding of building systems at scale.
-                </p>
+                <h2 className="text-base font-mono text-foreground mt-6"># dislikes</h2>
+                <ul className="ml-4 space-y-1">
+                  <li>• milk after cereal</li>
+                  <li>• molly tea haters</li>
+                  <li>• the tenderloin, SF</li>
+                  <li>• the fact that i didn&apos;t buy eth in 2016</li>
+                </ul>
                 
-                <p>
-                  I&apos;m a hobby-maxxer: running, basketball, working out, biking, swimming, reading, investing, and creating things that convenience everyone.
-                </p>
+                <h2 className="text-base font-mono text-foreground mt-6"># occupying my time</h2>
+                <ul className="ml-4 space-y-1">
+                  <li>• making this site</li>
+                  <li>• optimizing my sleep schedule around usage limits of claude max, gpt5, and gork4 subscriptions</li>
+                  <li>• psps cats in the wild</li>
+                  <li>• &gt;= 60 vo2 max upkeep</li>
+                </ul>
                 
-                <p>
-                  My current goals include summiting K2 and/or completing an Ironman. These challenges represent the intersection of physical endurance, mental fortitude, and meticulous preparation that I find compelling.
-                </p>
+                <h2 className="text-base font-mono text-foreground mt-6"># things i&apos;m doing</h2>
+                <ul className="ml-4 space-y-1">
+                  <li>• learning rust</li>
+                  <li>• codeforces / leetcode in rust</li>
+                  <li>• creating solana dapps</li>
+                  <li>• Creating mcp servers for super niche things / finding a way to minify context used by mcp servers</li>    
+
+                </ul>
               </div>
             </div>
             
