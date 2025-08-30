@@ -16,7 +16,7 @@ function getAboutContentLines() {
     const meaningfulLines = (afterFirstParagraph.match(/(h2 className|<li>)/g) || []).length;
     
     return Math.max(meaningfulLines, 1);
-  } catch (error) {
+  } catch {
     return 12; // fallback number
   }
 }

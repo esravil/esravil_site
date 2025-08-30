@@ -77,54 +77,59 @@ function writeLine(cells: Cell[], cols: number, col: number, row: number, text: 
 }
 
 export function Background() {
-  const [render, setRender] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [cols, setCols] = useState(0);
-  const [rows, setRows] = useState(0);
+  const [, setRows] = useState(0);
   const [cells, setCells] = useState<Cell[]>([]);
 
-  const calculateBackground = useCallback(
-    debounce(() => {
-      const widthPx = window.innerWidth;
-      const heightPx = window.innerHeight;
+  const calculateBackground = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
+    const widthPx = window.innerWidth;
+    const heightPx = window.innerHeight;
 
-      // ~1ch columns and ~1.6em rows (match your spacing)
-      const chWidthPx = 8;   // ~1ch at 16px font
-      const emHeightPx = 26; // ~1.6em
+    // ~1ch columns and ~1.6em rows (match your spacing)
+    const chWidthPx = 8;   // ~1ch at 16px font
+    const emHeightPx = 26; // ~1.6em
 
-      const newCols = Math.ceil(widthPx / chWidthPx);
-      const newRows = Math.ceil(heightPx / emHeightPx);
+    const newCols = Math.ceil(widthPx / chWidthPx);
+    const newRows = Math.ceil(heightPx / emHeightPx);
 
-      // 1) fill with random noise
-      const base: Cell[] = Array.from({ length: newCols * newRows }, () => ({ ch: randChar() }));
+    // 1) fill with random noise
+    const base: Cell[] = Array.from({ length: newCols * newRows }, () => ({ ch: randChar() }));
 
-      // 2) carve a centered plaque with ASCII panel
-      let plaqueLines = buildPlaqueLines(newCols);
-      const plaqueHeight = plaqueLines.length;
-      const plaqueWidth = plaqueLines.reduce((m, s) => Math.max(m, s.length), 0);
+    // 2) carve a centered plaque with ASCII panel
+    const plaqueLines = buildPlaqueLines(newCols);
+    const plaqueHeight = plaqueLines.length;
+    const plaqueWidth = plaqueLines.reduce((m, s) => Math.max(m, s.length), 0);
 
-      const startCol = Math.max(0, Math.floor((newCols - plaqueWidth) / 2));
-      const startRow = Math.max(0, Math.floor((newRows - plaqueHeight) / 2));
+    const startCol = Math.max(0, Math.floor((newCols - plaqueWidth) / 2));
+    const startRow = Math.max(0, Math.floor((newRows - plaqueHeight) / 2));
 
-      for (let r = 0; r < plaqueLines.length; r++) {
-        writeLine(base, newCols, startCol, startRow + r, plaqueLines[r]);
-      }
+    for (let r = 0; r < plaqueLines.length; r++) {
+      writeLine(base, newCols, startCol, startRow + r, plaqueLines[r]);
+    }
 
-      setCols(newCols);
-      setRows(newRows);
-      setCells(base);
-    }, 150),
-    []
+    setCols(newCols);
+    setRows(newRows);
+    setCells(base);
+  }, []);
+
+  const debouncedCalculateBackground = useCallback(
+    debounce(() => calculateBackground(), 150),
+    [calculateBackground]
   );
 
   useEffect(() => {
-    setRender(true);
+    setMounted(true);
     calculateBackground();
-    const handleResize = () => calculateBackground();
+    
+    const handleResize = () => debouncedCalculateBackground();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [calculateBackground]);
+  }, [calculateBackground, debouncedCalculateBackground]);
 
-  if (!render) return null;
+  if (!mounted) return null;
 
   return (
     <div
