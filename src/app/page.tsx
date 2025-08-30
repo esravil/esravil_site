@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import { HomeClient } from './home-client';

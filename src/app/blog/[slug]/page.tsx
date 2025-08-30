@@ -89,11 +89,24 @@ export default async function BlogPost({ params }: BlogPostProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 max-w-4xl">
+    <div className="min-h-screen px-8 sm:px-12 py-16 bg-white text-black">
+      <div className="w-full max-w-2xl md:ml-16 lg:ml-24 xl:ml-32">
         <div className="mb-8">
+          <div className="mb-8">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              esravil@MBP ~
+            </h1>
+            <div className="text-sm text-gray-600 -mt-2">
+              NYC + SF
+            </div>
+            <div className="text-sm text-gray-600 mt-1">
+              /blog/{slug}
+            </div>
+          </div>
+          
           <Link 
             href="/blog"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+            className="inline-flex items-center text-sm text-gray-600 hover:text-black transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
@@ -102,7 +115,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <article>
             <header className="mb-8">
               <h1 className="text-3xl sm:text-4xl font-bold mb-4">{post.meta.title}</h1>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600 mb-4">
                 <time>
                   Published {new Date(post.meta.publishedAt).toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -126,7 +139,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   {post.meta.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
+                      className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm"
                     >
                       {tag}
                     </span>
@@ -134,16 +147,17 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 </div>
               )}
               
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {post.meta.summary}
               </p>
             </header>
             
-            <div className="prose prose-neutral dark:prose-invert max-w-none prose-sm sm:prose-base">
+            <div className="prose prose-neutral max-w-none prose-sm sm:prose-base">
               <MDXRemote source={post.content} />
             </div>
           </article>
         </div>
+      </div>
     </div>
   );
 }
