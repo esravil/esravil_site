@@ -46,13 +46,10 @@ export default async function BlogPage() {
       <div className="w-full max-w-2xl md:ml-16 lg:ml-24 xl:ml-32">
         <section className="space-y-8">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              esravil@MBP ~
-            </h1>
-            <div className="text-sm text-gray-600 -mt-2">
-              NYC + SF
-            </div>
-            <div className="text-sm text-gray-600 mt-1">
+            <Link href="/" className="text-lg font-mono hover:text-gray-600 transition-colors">
+              esravil ~
+            </Link>
+            <div className="text-lg font-mono text-gray-600 mt-1">
               /blog
             </div>
           </div>
