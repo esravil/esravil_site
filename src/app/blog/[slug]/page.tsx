@@ -89,8 +89,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
   }
 
   return (
-    <div className="min-h-screen px-8 sm:px-12 py-16 bg-white text-black">
-      <div className="w-full max-w-2xl md:ml-16 lg:ml-24 xl:ml-32">
+    <div className="min-h-screen px-8 sm:px-12 py-2 bg-white text-black">
+      <div className="w-full max-w-2xl pt-16 md:ml-16 lg:ml-24 xl:ml-32">
         <div className="mb-8">
           <div className="mb-8">
             <Link href="/" className="text-lg font-mono hover:text-gray-600 transition-colors">
@@ -100,14 +100,6 @@ export default async function BlogPost({ params }: BlogPostProps) {
               /blog/{slug}
             </div>
           </div>
-          
-          <Link 
-            href="/blog"
-            className="inline-flex items-center text-sm text-gray-600 hover:text-black transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Blog
-          </Link>
           
           <article>
             <header className="mb-8">
@@ -153,6 +145,16 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <MDXRemote source={post.content} />
             </div>
           </article>
+          
+          <div className="mt-8">
+            <Link 
+              href="/blog"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-black rounded text-sm transition-colors no-underline"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Blog
+            </Link>
+          </div>
         </div>
       </div>
     </div>

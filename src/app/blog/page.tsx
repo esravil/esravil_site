@@ -42,8 +42,8 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="min-h-screen px-8 sm:px-12 py-16 bg-white text-black">
-      <div className="w-full max-w-2xl md:ml-16 lg:ml-24 xl:ml-32">
+    <div className="min-h-screen px-8 sm:px-12 py-2 bg-white text-black">
+      <div className="w-full max-w-2xl pt-16 md:ml-16 lg:ml-24 xl:ml-32">
         <section className="space-y-8">
           <div>
             <Link href="/" className="text-lg font-mono hover:text-gray-600 transition-colors">
