@@ -35,8 +35,7 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
               <p className="w-fit max-w-2xl pointer-events-auto">
                 Hey I&apos;m esravil. I like to make cool things. I&apos;m
                 fond of distributed systems and solving difficult problems.
-                Previously, I interned at Google and at the Solana
-                Foundation.
+                Previously, I interned at Google and some other cool places.
               </p>
             </div>
             <div className="ml-4 mt-2 pointer-events-none">
@@ -54,7 +53,7 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
             <p className="text-lg font-mono w-fit pointer-events-auto">% ls projects/</p>
             <div className="text-lg text-gray-600 ml-4 mt-2 pointer-events-none">
               <p className="w-fit max-w-2xl pointer-events-auto">
-                Some things I've built and worked on.
+                Some things I&apos;ve built and worked on.
               </p>
             </div>
 
