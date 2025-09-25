@@ -41,17 +41,17 @@ export default function About() {
                 <h2 className="text-base font-mono text-black mt-6"># occupying my time</h2>
                 <ul className="ml-4 space-y-1">
                   <li>• making this site</li>
-                  <li>• optimizing my sleep schedule around usage limits of claude max, gpt5, and gork4 subscriptions</li>
+                  <li>• i optimize my sleep schedule around my usage of gpt5 and gork</li>
                   <li>• psps cats in the wild</li>
                   <li>• &gt;= 60 vo2 max upkeep</li>
                 </ul>
                 
                 <h2 className="text-base font-mono text-black mt-6"># things i&apos;m doing</h2>
                 <ul className="ml-4 space-y-1">
-                  <li>• learning rust</li>
-                  <li>• codeforces / leetcode in rust</li>
-                  <li>• creating solana dapps</li>
-                  <li>• Creating mcp servers for super niche things / finding a way to minify context used by mcp servers</li>    
+                  <li>• learning rust + sol dev</li>
+                  <li>• making my calves stronger</li>
+                  <li>• tinkering with prediction markets, perps trading, and some math</li>
+                  <li>• sometimes infra / convenience tooling</li>
 
                 </ul>
               </div>

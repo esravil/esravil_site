@@ -54,64 +54,78 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
             <p className="text-lg font-mono w-fit pointer-events-auto">% ls projects/</p>
             <div className="text-lg text-gray-600 ml-4 mt-2 pointer-events-none">
               <p className="w-fit max-w-2xl pointer-events-auto">
-                Some things I&apos;ve built and worked on.
+                Some things I've built and worked on.
               </p>
             </div>
-          </div>
 
+            {/* Social links / Contact (text labels, one per row) */}
+            <div className="mt-8 ml-4 pointer-events-none">
+              <div className="flex flex-col gap-1 w-fit pointer-events-none">
 
-          {/* Mobile social links - minimal centered at bottom */}
-          <div className="mt-16 lg:hidden pointer-events-none">
-            {/* Social links row */}
-            <div className="flex items-center justify-center gap-6 w-fit mx-auto pointer-events-none">
-              <Link
-                href="https://twitter.com/esravil"
-                className="text-gray-600 hover:text-black transition-colors pointer-events-auto"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="https://github.com/esravil"
-                className="text-gray-600 hover:text-black transition-colors pointer-events-auto"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/blog"
-                className="text-gray-600 hover:text-black transition-colors pointer-events-auto"
-                title="Blog"
-              >
-                <BookOpen className="h-5 w-5" />
-              </Link>
-              <span className="text-gray-600 pointer-events-auto" title="Email">
-                <Mail className="h-5 w-5" />
-              </span>
+                <span className="text-gray-600 pointer-events-auto flex items-center gap-2" title="Email">
+                  <Mail className="h-4 w-4" />
+                  esravil99 [at] gmail [dot] com
+                </span>
+
+                <Link
+                  href="https://twitter.com/esravil"
+                  className="text-gray-600 transition-colors w-fit pointer-events-auto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Twitter"
+                >
+                  <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
+                    <Twitter className="h-4 w-4" />
+                    twitter
+                  </span>
+                </Link>
+                <Link
+                  href="https://github.com/esravil"
+                  className="text-gray-600 transition-colors w-fit pointer-events-auto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                >
+                  <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
+                    <Github className="h-4 w-4" />
+                    github
+                  </span>
+                </Link>
+                <Link
+                  href="/blog"
+                  className="text-gray-600 transition-colors w-fit pointer-events-auto"
+                  title="Blog"
+                >
+                  <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
+                    <BookOpen className="h-4 w-4" />
+                    blog
+                  </span>
+                </Link>
+              </div>
             </div>
 
-            {/* RSS and Sitemap row */}
-            <div className="flex items-center justify-center gap-4 mt-4 w-fit mx-auto pointer-events-none">
+            {/* RSS and Sitemap icons only */}
+            <div className="flex items-center gap-4 mt-8 ml-4 w-fit pointer-events-none">
               <Link
                 href="/feed.xml"
-                className="text-gray-600 hover:text-black transition-colors pointer-events-auto"
+                className="text-gray-600 hover:text-black transition-colors w-fit h-fit pointer-events-auto"
                 title="RSS Feed"
               >
-                <Rss className="h-4 w-4" />
+                <Rss className="h-5 w-5" />
+                <span className="sr-only">RSS Feed</span>
               </Link>
               <Link
                 href="/sitemap.xml"
-                className="text-gray-600 hover:text-black transition-colors pointer-events-auto"
+                className="text-gray-600 hover:text-black transition-colors w-fit h-fit pointer-events-auto"
                 title="Sitemap"
               >
-                <Map className="h-4 w-4" />
+                <Map className="h-5 w-5" />
+                <span className="sr-only">Sitemap</span>
               </Link>
             </div>
           </div>
+
+
 
           {/* Links with minimal spacing - aligned with content */}
           {/* <div className="flex items-center gap-4 mt-8 ml-4 px-8 sm:px-12 w-fit pointer-events-none">
@@ -134,76 +148,6 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
           </div> */}
           </main>
 
-          {/* Right column with set theory notation */}
-          <aside className="relative z-10 pt-16 hidden lg:block pointer-events-none select-text">
-            <div className="py-2 mt-15 pointer-events-none">
-              <div className="ml-4 space-y-1 font-mono text-lg pointer-events-none">
-                <p className="w-fit pointer-events-auto">L ⊆ ℝ, L = {"{a, b, c, d}"}</p>
-              </div>
-            </div>
-
-            {/* Links */}
-            <div className="mt-0 ml-4 flex flex-col gap-1 w-fit pointer-events-none">
-              <Link
-                href="https://twitter.com/esravil"
-                className="text-gray-600 transition-colors w-fit pointer-events-auto"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Twitter"
-              >
-                <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
-                  <Twitter className="h-4 w-4" />
-                  twitter
-                </span>
-              </Link>
-              <Link
-                href="https://github.com/esravil"
-                className="text-gray-600 transition-colors w-fit pointer-events-auto"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-              >
-                <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
-                  <Github className="h-4 w-4" />
-                  github
-                </span>
-              </Link>
-              <Link
-                href="/blog"
-                className="text-gray-600 transition-colors w-fit pointer-events-auto"
-                title="Blog"
-              >
-                <span className="hover:text-white hover:bg-black underline flex items-center gap-2 w-fit">
-                  <BookOpen className="h-4 w-4" />
-                  blog
-                </span>
-              </Link>
-              <span className="text-gray-600 pointer-events-auto flex items-center gap-2" title="Email">
-                <Mail className="h-4 w-4" />
-                esravil99 [at] gmail [dot] com
-              </span>
-            </div>
-
-            {/* RSS and Sitemap */}
-            <div className="flex items-center gap-4 mt-8 ml-4 w-fit pointer-events-none">
-              <Link
-                href="/feed.xml"
-                className="text-gray-600 hover:text-black transition-colors w-fit h-fit pointer-events-auto"
-                title="RSS Feed"
-              >
-                <Rss className="h-5 w-5" />
-                <span className="sr-only">RSS Feed</span>
-              </Link>
-              <Link
-                href="/sitemap.xml"
-                className="text-gray-600 hover:text-black transition-colors w-fit h-fit pointer-events-auto"
-                title="Sitemap"
-              >
-                <Map className="h-5 w-5" />
-                <span className="sr-only">Sitemap</span>
-              </Link>
-            </div>
-          </aside>
         </div>
       </div>
     </div>
