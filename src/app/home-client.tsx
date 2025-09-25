@@ -51,10 +51,44 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
           {/* Projects section */}
           <div className="mt-8 px-8 sm:px-12 pointer-events-none">
             <p className="text-lg font-mono w-fit pointer-events-auto">% ls projects/</p>
-            <div className="text-lg text-gray-600 ml-4 mt-2 pointer-events-none">
+            {/* <div className="text-lg text-gray-600 ml-4 mt-2 pointer-events-none">
               <p className="w-fit max-w-2xl pointer-events-auto">
-                Some things I&apos;ve built and worked on.
+                Some things I've built and worked on.
               </p>
+            </div> */}
+
+            {/* Project links */}
+            <div className="mt-3 ml-4 pointer-events-none">
+              <ul className="list-none space-y-1">
+                <li className="w-fit pointer-events-none">
+                  <Link
+                    href="https://haters.me"
+                    className="text-gray-600 transition-colors w-fit pointer-events-auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="haters.me"
+                  >
+                    <span className="hover:text-white hover:bg-black underline w-fit">haters.me</span>
+                  </Link>
+                  <span className="text-gray-500 text-sm ml-2 pointer-events-none">
+                    — bet on yourself to achieve a goal; if not, you lose money
+                  </span>
+                </li>
+                <li className="w-fit pointer-events-none">
+                  <Link
+                    href="https://pinata.fun"
+                    className="text-gray-600 transition-colors w-fit pointer-events-auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="pinata.fun"
+                  >
+                    <span className="hover:text-white hover:bg-black underline w-fit">pinata.fun</span>
+                  </Link>
+                  <span className="text-gray-500 text-sm ml-2 pointer-events-none">
+                    — investing platform, CSGO skins + cases ETF on solana
+                  </span>
+                </li>
+              </ul>
             </div>
 
             {/* Social links / Contact (text labels, one per row) */}
