@@ -7,6 +7,9 @@ import { debounce } from '@/utils/debounce';
 // Same background character set (with NBSPs preserved)
 const BACKGROUND_CHARACTERS = ' *,      ./0!8#X~;$\\}%'.replaceAll(' ', '\u00A0');
 
+// Color pop palette for random character highlights
+const POP_COLORS = ["#a70947", "#FF0000", "#FFA500", "#FFE135", "#008000", "#131836", "#1E90FF"];
+
 /** ------- deterministic plaque content (edit to taste) ------- */
 const PLAQUE = {
   date: '2020-03-16',
@@ -164,8 +167,9 @@ function Character({ value }: { value: string }) {
   useInterval(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (Math.random() < 0.01 && ref.current) {
+      const randomColor = POP_COLORS[Math.floor(Math.random() * POP_COLORS.length)];
       ref.current.animate(
-        [{ color: '#F2F2F2' }, { color: '#C9C9C9' }, { color: '#F2F2F2' }],
+        [{ color: '#F2F2F2' }, { color: randomColor }, { color: '#F2F2F2' }],
         { duration: 1000, easing: 'linear' }
       );
     }
