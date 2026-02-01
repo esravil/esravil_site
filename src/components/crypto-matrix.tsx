@@ -10,6 +10,9 @@ const BACKGROUND_CHARACTERS = ' *,      ./0!8#X~;$\\}%'.replaceAll(' ', '\u00A0'
 // Color pop palette for random character highlights
 const POP_COLORS = ["#a70947", "#FF0000", "#FFA500", "#FFE135", "#008000", "#131836", "#1E90FF"];
 
+// Lighter base glyph color with alpha (keeps the matrix subtle without muting hover/pops)
+const BASE_COLOR = "rgba(242, 242, 242, 0.78)";
+
 /** ------- deterministic plaque content (edit to taste) ------- */
 const PLAQUE = {
   date: '2020-03-16',
@@ -89,7 +92,14 @@ export function Background() {
     if (typeof window === 'undefined') return;
     
     const widthPx = window.innerWidth;
-    const heightPx = window.innerHeight;
+
+    // Use the full document height so the matrix covers the entire page (not just the initial viewport)
+    const docHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body?.scrollHeight ?? 0,
+      window.innerHeight
+    );
+    const heightPx = docHeight;
 
     // ~1ch columns and ~1.6em rows (match your spacing)
     const chWidthPx = 8;   // ~1ch at 16px font
@@ -126,10 +136,26 @@ export function Background() {
   useEffect(() => {
     setMounted(true);
     calculateBackground();
-    
+
     const handleResize = () => debouncedCalculateBackground();
+    const handleLoad = () => debouncedCalculateBackground();
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('load', handleLoad);
+
+    // Track document height changes so the background extends as the page grows
+    let ro: ResizeObserver | null = null;
+    if (typeof window !== 'undefined' && 'ResizeObserver' in window) {
+      ro = new ResizeObserver(() => debouncedCalculateBackground());
+      if (document.body) ro.observe(document.body);
+      ro.observe(document.documentElement);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', handleLoad);
+      ro?.disconnect();
+    };
   }, [calculateBackground, debouncedCalculateBackground]);
 
   if (!mounted) return null;
@@ -147,7 +173,8 @@ export function Background() {
         fontFamily: 'monospace',
         fontSize: '16px',
         lineHeight: '1em',
-        color: '#F2F2F2',
+        color: BASE_COLOR,
+
         justifyItems: 'center',
         alignItems: 'center',
       }}
@@ -163,22 +190,53 @@ function Character({ value }: { value: string }) {
   const noise = useRef(Math.floor(Math.random() * 1500) + 500);
   const ref = useRef<HTMLSpanElement>(null);
 
-  // Same subtle shimmer + hover for ALL cells (including plaque)
+  // Enable shimmer for only a subset of cells to avoid too many timers on tall pages.
+  // Hover interactivity still applies to every cell.
+  const shimmerEnabled = useRef(Math.random() < 0.28);
+
   useInterval(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (Math.random() < 0.01 && ref.current) {
+    if (Math.random() < 0.02 && ref.current) {
       const randomColor = POP_COLORS[Math.floor(Math.random() * POP_COLORS.length)];
       ref.current.animate(
-        [{ color: '#F2F2F2' }, { color: randomColor }, { color: '#F2F2F2' }],
-        { duration: 1000, easing: 'linear' }
+        [{ color: BASE_COLOR }, { color: randomColor }, { color: BASE_COLOR }],
+        { duration: 1100, easing: 'ease-out' }
       );
     }
-  }, noise.current);
+  }, shimmerEnabled.current ? noise.current : null);
+
+  const hoverAnim = useRef<Animation | null>(null);
+  const lastHoverAt = useRef(0);
+
+  const triggerHover = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!ref.current) return;
+
+    // Throttle to keep the trail smooth (avoid constant restarts while moving within the same cell)
+    const now = performance.now();
+    if (now - lastHoverAt.current < 45) return;
+    lastHoverAt.current = now;
+
+    // Cursor-following effect: darken only (no pop colors), then linger and fade away.
+    const hoverColor = 'rgba(0, 0, 0, 0.55)';
+    hoverAnim.current?.cancel();
+    hoverAnim.current = ref.current.animate(
+      [
+        { color: BASE_COLOR, offset: 0 },
+        { color: hoverColor, offset: 0.18 },
+        { color: hoverColor, offset: 0.72 },
+        { color: BASE_COLOR, offset: 1 },
+      ],
+      { duration: 900, easing: 'ease-out' }
+    );
+  };
 
   return (
     <span
       ref={ref}
-      className="crypto-bg-char hover:text-black/50 hover:duration-0 duration-[0.8s] transition-[color,background-color]"
+      onPointerEnter={triggerHover}
+      onPointerMove={triggerHover}
+      className="crypto-bg-char flex w-[1ch] h-[1.6em] items-center justify-center text-center transition-[color] duration-[900ms]"
     >
       {value}
     </span>

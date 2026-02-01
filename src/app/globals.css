@@ -44,6 +44,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   --background: #ffffff;
   --foreground: #000000;
@@ -82,9 +83,38 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html,
+  body {
+    /* prevent rubber-band overscroll where supported */
+    overscroll-behavior: none;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Light scrollbars */
+  html {
+    scrollbar-color: rgba(0, 0, 0, 0.25) #ffffff; /* thumb track */
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 9999px;
+    border: 2px solid #ffffff; /* keeps the track looking white */
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
   ::selection {
     background-color: #000000;
     color: #ffffff;

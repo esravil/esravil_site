@@ -1,0 +1,50 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wbg" x1="0" y1="0" x2="1400" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBFBFB"/>
+      <stop offset="1" stop-color="#F1F1F1"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F7F7F7"/>
+    </linearGradient>
+    <filter id="shadow" x="-40" y="-40" width="1480" height="900" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="820" rx="36" fill="url(#wbg)"/>
+
+  <!-- desk surface -->
+  <rect x="120" y="240" width="1160" height="460" rx="28" fill="#000000" fill-opacity="0.05"/>
+  <rect x="140" y="260" width="1120" height="420" rx="24" fill="url(#card)"/>
+
+  <!-- scattered "papers" -->
+  <g opacity="0.75">
+    <rect x="220" y="310" width="380" height="220" rx="18" fill="#000000" fill-opacity="0.04"/>
+    <rect x="240" y="330" width="340" height="180" rx="14" fill="#FFFFFF"/>
+    <rect x="650" y="300" width="420" height="250" rx="18" fill="#000000" fill-opacity="0.035"/>
+    <rect x="670" y="320" width="380" height="210" rx="14" fill="#FFFFFF"/>
+    <rect x="520" y="510" width="520" height="140" rx="18" fill="#000000" fill-opacity="0.03"/>
+    <rect x="540" y="530" width="480" height="100" rx="14" fill="#FFFFFF"/>
+  </g>
+
+  <!-- doodle lines -->
+  <g stroke="#111111" stroke-opacity="0.18" stroke-width="6" stroke-linecap="round">
+    <path d="M280 400C330 370 410 370 470 410"/>
+    <path d="M735 410C810 360 910 360 990 420"/>
+    <path d="M610 590C690 560 820 560 920 610"/>
+  </g>
+
+  <!-- "glasses" shape -->
+  <g opacity="0.55" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1030 600C1010 560 980 545 950 548C920 552 900 575 895 605C890 636 910 665 940 672C970 678 1005 662 1030 630"/>
+    <path d="M1100 600C1120 560 1150 545 1180 548C1210 552 1230 575 1235 605C1240 636 1220 665 1190 672C1160 678 1125 662 1100 630"/>
+    <path d="M1030 608H1100"/>
+  </g>
+
+  <!-- subtle top label -->
+  <text x="120" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="22" fill="#000000" opacity="0.35">
+    workbench / sketches / notes
+  </text>
+</svg>

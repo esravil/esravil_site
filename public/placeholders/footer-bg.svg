@@ -1,0 +1,47 @@
+<svg width="2400" height="560" viewBox="0 0 2400 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="2400" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1320"/>
+      <stop offset="0.55" stop-color="#12243A"/>
+      <stop offset="1" stop-color="#0A0F18"/>
+    </linearGradient>
+
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1760 220) rotate(90) scale(260 520)">
+      <stop offset="0" stop-color="#FFD36B" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFD36B" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 360) rotate(90) scale(260 560)">
+      <stop offset="0" stop-color="#86E1FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#86E1FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="bokeh" x="-200" y="-200" width="2800" height="960" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="560" fill="url(#sky)"/>
+
+  <!-- distant "hills" -->
+  <path d="M0 420C260 360 520 380 780 420C1040 460 1240 470 1520 430C1800 390 2100 360 2400 420V560H0V420Z"
+        fill="#0A0F18" fill-opacity="0.65"/>
+
+  <!-- bokeh / light blobs -->
+  <g filter="url(#bokeh)" opacity="0.9">
+    <circle cx="1760" cy="220" r="220" fill="url(#glow1)"/>
+    <circle cx="520" cy="360" r="260" fill="url(#glow2)"/>
+    <circle cx="2140" cy="420" r="180" fill="#FFD36B" fill-opacity="0.12"/>
+    <circle cx="1220" cy="140" r="160" fill="#FFFFFF" fill-opacity="0.10"/>
+  </g>
+
+  <!-- subtle grain lines -->
+  <g opacity="0.08" stroke="#FFFFFF">
+    <path d="M0 90H2400"/>
+    <path d="M0 150H2400"/>
+    <path d="M0 210H2400"/>
+    <path d="M0 270H2400"/>
+    <path d="M0 330H2400"/>
+    <path d="M0 390H2400"/>
+  </g>
+</svg>

@@ -1,0 +1,78 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FAFAFA"/>
+      <stop offset="1" stop-color="#F2F2F2"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#111111" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#111111" stop-opacity="0.00"/>
+    </linearGradient>
+    <filter id="blur" x="-40" y="-40" width="1480" height="900" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="820" rx="36" fill="url(#bg)"/>
+
+  <!-- subtle blobs -->
+  <g filter="url(#blur)" opacity="0.6">
+    <circle cx="280" cy="220" r="110" fill="#000000" fill-opacity="0.05"/>
+    <circle cx="1120" cy="210" r="140" fill="#000000" fill-opacity="0.04"/>
+    <circle cx="980" cy="610" r="160" fill="#000000" fill-opacity="0.03"/>
+  </g>
+
+  <!-- grid -->
+  <g opacity="0.22" stroke="#000000">
+    <path d="M120 150H1280" stroke-opacity="0.15"/>
+    <path d="M120 260H1280" stroke-opacity="0.12"/>
+    <path d="M120 370H1280" stroke-opacity="0.10"/>
+    <path d="M120 480H1280" stroke-opacity="0.08"/>
+    <path d="M120 590H1280" stroke-opacity="0.07"/>
+    <path d="M120 700H1280" stroke-opacity="0.06"/>
+
+    <path d="M220 130V720" stroke-opacity="0.07"/>
+    <path d="M380 130V720" stroke-opacity="0.06"/>
+    <path d="M540 130V720" stroke-opacity="0.06"/>
+    <path d="M700 130V720" stroke-opacity="0.06"/>
+    <path d="M860 130V720" stroke-opacity="0.06"/>
+    <path d="M1020 130V720" stroke-opacity="0.06"/>
+    <path d="M1180 130V720" stroke-opacity="0.07"/>
+  </g>
+
+  <!-- labels -->
+  <text x="140" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="22" fill="#000000" opacity="0.35">human</text>
+  <text x="140" y="240" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="22" fill="#000000" opacity="0.25">model</text>
+
+  <!-- area chart -->
+  <path d="M120 580
+           C 200 520, 260 520, 340 560
+           C 420 600, 460 420, 540 440
+           C 620 460, 700 260, 780 300
+           C 860 340, 900 520, 980 480
+           C 1060 440, 1120 360, 1200 380
+           C 1240 390, 1260 450, 1280 470
+           L 1280 720 L 120 720 Z"
+        fill="url(#area)"/>
+
+  <path d="M120 580
+           C 200 520, 260 520, 340 560
+           C 420 600, 460 420, 540 440
+           C 620 460, 700 260, 780 300
+           C 860 340, 900 520, 980 480
+           C 1060 440, 1120 360, 1200 380
+           C 1240 390, 1260 450, 1280 470"
+        stroke="#111111" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- baseline ticks -->
+  <g opacity="0.25" stroke="#000000">
+    <path d="M120 720H1280" stroke-opacity="0.15"/>
+    <path d="M220 720V702" stroke-opacity="0.22"/>
+    <path d="M380 720V702" stroke-opacity="0.22"/>
+    <path d="M540 720V702" stroke-opacity="0.22"/>
+    <path d="M700 720V702" stroke-opacity="0.22"/>
+    <path d="M860 720V702" stroke-opacity="0.22"/>
+    <path d="M1020 720V702" stroke-opacity="0.22"/>
+    <path d="M1180 720V702" stroke-opacity="0.22"/>
+  </g>
+</svg>
