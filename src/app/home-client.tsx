@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Background } from '@/components/crypto-matrix';
 import {
@@ -20,8 +20,6 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
   const year = new Date().getFullYear();
   const contentRef = useRef<HTMLDivElement | null>(null);
   const footerRef = useRef<HTMLElement | null>(null);
-  const navSlotRef = useRef<HTMLDivElement | null>(null);
-
   // Fixed, clipped layers so the matrix doesn't scroll but still appears inside the panel.
   const panelBgRef = useRef<HTMLDivElement | null>(null);
   const matrixMaskRef = useRef<HTMLDivElement | null>(null);
@@ -209,38 +207,35 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
     };
   }, []);
 
-  // Keep the left nav pinned to the viewport (even while the main panel translates for footer reveal).
-  useEffect(() => {
-    const slot = navSlotRef.current;
-    if (!slot) return;
-
-    const update = () => {
-      const rect = slot.getBoundingClientRect();
-      document.documentElement.style.setProperty('--home-nav-left', `${rect.left}px`);
-      document.documentElement.style.setProperty('--home-nav-width', `${rect.width}px`);
-    };
-
-    update();
-
-    window.addEventListener('resize', update, { passive: true });
-
-    let ro: ResizeObserver | null = null;
-    if ('ResizeObserver' in window) {
-      ro = new ResizeObserver(() => update());
-      ro.observe(slot);
-    }
-
-    return () => {
-      window.removeEventListener('resize', update);
-      ro?.disconnect();
-    };
-  }, []);
 
   return (
     <div
       id="new"
       className="relative min-h-[100dvh] bg-[linear-gradient(to_bottom,_#ffffff_0%,_#ffffff_calc(100%-140px),_#f9fafb_calc(100%-140px),_#f9fafb_100%)] text-black select-none [--footer-reveal-h:clamp(320px,36vh,520px)]"
     >
+      {/* Truly fixed left nav (outside any transformed container) */}
+      <div className="hidden lg:block fixed top-44 lg:top-48 left-0 right-0 z-50 pointer-events-none">
+        <div className="mx-auto w-full px-6 sm:px-10">
+          <div className="grid grid-cols-[minmax(0,0.4fr)_180px_minmax(0,0.15fr)_minmax(0,40rem)_minmax(0,1fr)]">
+            <div className="col-start-2 pointer-events-auto">
+              <div className="flex flex-col gap-5 text-sm">
+                <Link
+                  href="/"
+                  className="text-base font-mono w-fit hover:text-gray-600 transition-colors"
+                >
+                  esravil
+                </Link>
+
+                <nav className="flex flex-col gap-2 text-gray-600">
+                  <a href="#top" className="w-fit hover:text-black transition-colors">Home</a>
+                  <a href="#projects" className="w-fit hover:text-black transition-colors">Projects</a>
+                  <a href="#writing" className="w-fit hover:text-black transition-colors">Writing</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Fixed clipped white panel fill (replaces the panel's bg-white so the matrix can be fixed behind content). */}
       <div
         ref={panelBgRef}
@@ -267,40 +262,6 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
         <Background />
       </div>
 
-      {/* Fixed left nav (pinned for the entire scroll). */}
-      <div
-        className="hidden lg:block fixed top-44 lg:top-48 z-20 pointer-events-none"
-        style={{
-          left: 'var(--home-nav-left, 0px)',
-          width: 'var(--home-nav-width, 180px)',
-        }}
-      >
-        <div className="pointer-events-auto">
-          <div className="flex flex-col gap-5 text-sm">
-            <div className="flex items-center gap-3">
-              <Link
-                href="/"
-                className="text-base font-mono w-fit hover:text-gray-600 transition-colors"
-                aria-label="Home"
-              >
-                esravil
-              </Link>
-            </div>
-
-            <nav className="flex flex-col gap-2 text-gray-600">
-              <a href="#top" className="w-fit hover:text-black transition-colors">
-                Home
-              </a>
-              <a href="#projects" className="w-fit hover:text-black transition-colors">
-                Projects
-              </a>
-              <a href="#writing" className="w-fit hover:text-black transition-colors">
-                Writing
-              </a>
-            </nav>
-          </div>
-        </div>
-      </div>
 
       {/* Main content panel (moves up as the footer reveals). Rounded bottom edges for a seamless join. */}
       <div
@@ -310,13 +271,6 @@ export function HomeClient({ additionalLines }: HomeClientProps) {
         {/* Main two-column layout */}
         <div className="relative z-10 mx-auto w-full px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.4fr)_180px_minmax(0,0.15fr)_minmax(0,40rem)_minmax(0,1fr)] gap-y-14 lg:gap-y-24">
-            {/* Left fixed/sticky nav */}
-            <aside
-              className="hidden lg:block pt-44 lg:pt-48 lg:col-start-2"
-              aria-hidden="true"
-            >
-              <div ref={navSlotRef} className="w-full h-px opacity-0 pointer-events-none" />
-            </aside>
 
             {/* Right content column */}
             <main
